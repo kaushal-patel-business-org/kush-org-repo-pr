@@ -5,11 +5,17 @@ on:
       - main
       - stage
       - develop
+      - stage-*
+      - develop-*
+      - branch-*
   pull_request:
     branches:
       - main
       - stage
       - develop
+      - stage-*
+      - develop-*
+      - branch-*
     types: [opened, synchronize, reopened]
 jobs:
   sonarcloud:
