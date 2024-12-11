@@ -5,21 +5,28 @@ on:
       - main
       - stage
       - develop
+      - stage-*
+      - develop-*
+      - branch-*
   pull_request:
     branches:
       - main
       - stage
       - develop
+      - stage-*
+      - develop-*
+      - branch-*
     types: [opened, synchronize, reopened]
+
 jobs:
-  sonarcloud:
+  sonarqube:
     name: SonarQube Cloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Cloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
