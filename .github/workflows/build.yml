@@ -18,7 +18,6 @@ on:
       - branch-*
     types: [opened, synchronize, reopened]
 
-name: Main Workflow
 jobs:
   sonarqube:
     name: SonarQube Cloud
